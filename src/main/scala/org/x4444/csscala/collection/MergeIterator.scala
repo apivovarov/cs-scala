@@ -2,6 +2,13 @@ package org.x4444.csscala.collection
 
 import scala.collection.mutable.SortedSet
 
+/**
+ * Iterator implementation which combines data from input Sorted Iterators
+ * next method output is sorted
+ *
+ * @param iters - Sequence of Sorted Iterators
+ * @tparam T - Ordering
+ */
 class MergeIterator[T: Ordering](iters: Seq[Iterator[T]]) extends Iterator[T] {
 
   type AB = (T, Iterator[T])
@@ -24,5 +31,5 @@ class MergeIterator[T: Ordering](iters: Seq[Iterator[T]]) extends Iterator[T] {
     minV
   }
 
-  override def hasNext(): Boolean = !heads.isEmpty
+  override def hasNext: Boolean = !heads.isEmpty
 }
