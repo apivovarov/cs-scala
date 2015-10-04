@@ -3,20 +3,19 @@ package org.x4444.csscala.collection
 import scala.collection.mutable.SortedSet
 
 /**
- * Iterator implementation which combines data from input Sorted Iterators
- * next method output is sorted
+ * Iterator implementation which combines and sorts data from several sorted Iterators
  *
  * @param iters - Sequence of Sorted Iterators
  * @tparam T - Ordering
  */
 class MergeIterator[T: Ordering](iters: Seq[Iterator[T]]) extends Iterator[T] {
 
-  type AB = (T, Iterator[T])
+  type KV = (T, Iterator[T])
 
-  implicit val abOrdering: Ordering[AB] = Ordering.by(_._1)
+  implicit val kvOrdering: Ordering[KV] = Ordering.by(_._1)
 
-  val heads: SortedSet[AB] =
-    iters.flatMap { x => if (x.hasNext) Some((x.next, x)) else None }.foldLeft(SortedSet.empty[AB])(_ += _)
+  val heads: SortedSet[KV] =
+    iters.flatMap(iter => if (iter.hasNext) Some((iter.next, iter)) else None).foldLeft(SortedSet.empty[KV])(_ += _)
 
   override def next(): T = {
     if (heads.isEmpty) {
@@ -32,4 +31,10 @@ class MergeIterator[T: Ordering](iters: Seq[Iterator[T]]) extends Iterator[T] {
   }
 
   override def hasNext: Boolean = !heads.isEmpty
+}
+
+object MergeIterator {
+  def empty[T: Ordering]: Iterator[T] = MergeIterator(Seq.empty[Iterator[T]])
+
+  def apply[T: Ordering](iters: Seq[Iterator[T]]): scala.collection.Iterator[T] = new MergeIterator[T](iters)
 }

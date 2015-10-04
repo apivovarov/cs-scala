@@ -4,7 +4,7 @@ import org.scalatest.FunSuite
 
 class MergeIteratorSuite extends FunSuite {
 
-  def getIter: Iterator[Int] = new MergeIterator(Seq(Iterator(1, 5, 8), Iterator(2, 4, 9)))
+  def getIter: Iterator[Int] = MergeIterator(Seq(Iterator(1, 5, 8), Iterator(2, 4, 9)))
 
   test("MergeIterator") {
     val iter = getIter
@@ -26,5 +26,8 @@ class MergeIteratorSuite extends FunSuite {
     assert(iter2.hasNext)
     assert(iter2.next() === 9)
     assert(!iter2.hasNext)
+
+    val iter3 = MergeIterator.empty
+    assert(!iter3.hasNext)
   }
 }
