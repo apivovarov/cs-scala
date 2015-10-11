@@ -1,6 +1,7 @@
 # Computer Science Algorithms in Scala
 
 ## List on Algorithms
+- Merge Sort
 - Merge Sort Iterator
 
 ## Build
