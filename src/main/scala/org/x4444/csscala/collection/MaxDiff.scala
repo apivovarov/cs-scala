@@ -58,4 +58,26 @@ object MaxDiff {
       }
     }
   }
+
+  /**
+    * Fold based implementation
+    *
+    * @param arr - Int Array
+    * @return - max diff
+    */
+  def getFold(arr: Array[Int]): Int = {
+    if (arr == null || arr.length < 2) return 0
+    // zero value (diff, min)
+    val z = (0, arr(0))
+
+    val res = arr.foldLeft(z) { case ((diff, min), a) =>
+      if (a < min) (diff, a)
+      else {
+        val newDiff = a - min
+        val diff2 = if (newDiff > diff) newDiff else diff
+        (diff2, min)
+      }
+    }
+    res._1
+  }
 }

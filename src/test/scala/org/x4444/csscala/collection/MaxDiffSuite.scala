@@ -20,6 +20,7 @@ class MaxDiffSuite extends FunSuite {
     inOut.foreach { x =>
       assert(MaxDiff.get(x._1) == x._2)
       assert(MaxDiff.getRec(x._1) == x._2)
+      assert(MaxDiff.getFold(x._1) == x._2)
     }
   }
 }
