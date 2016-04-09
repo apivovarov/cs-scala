@@ -13,10 +13,10 @@ object MaxDiff {
     * @param arr - Int Array
     * @return - max diff
     */
-  def get(arr: Array[Int]): Int = {
+  def get(arr: Seq[Int]): Int = {
     if (arr == null || arr.length < 2) return 0
 
-    var min = arr(0)
+    var min = arr.head
     var diff = 0
 
     for (a <- arr) {
@@ -38,14 +38,14 @@ object MaxDiff {
     * @param arr - Int Array
     * @return - max diff
     */
-  def getRec(arr: Array[Int]): Int = {
+  def getRec(arr: Seq[Int]): Int = {
     if (arr == null || arr.length < 2) return 0
 
-    look(arr.toList, 0, arr(0))
+    look(arr, 0, arr.head)
   }
 
   @tailrec
-  def look(li: List[Int], diff: Int, min: Int): Int = {
+  def look(li: Seq[Int], diff: Int, min: Int): Int = {
     li match {
       case Nil => diff
       case x :: tail => {
@@ -65,10 +65,10 @@ object MaxDiff {
     * @param arr - Int Array
     * @return - max diff
     */
-  def getFold(arr: Array[Int]): Int = {
+  def getFold(arr: Seq[Int]): Int = {
     if (arr == null || arr.length < 2) return 0
     // zero value (diff, min)
-    val z = (0, arr(0))
+    val z = (0, arr.head)
 
     val res = arr.foldLeft(z) { case ((diff, min), a) =>
       if (a < min) (diff, a)

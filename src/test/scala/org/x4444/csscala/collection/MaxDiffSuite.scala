@@ -5,16 +5,16 @@ import org.scalatest.FunSuite
 class MaxDiffSuite extends FunSuite {
 
   test("functions") {
-    val inOut = List(
-      (Array(1, 2, 3), 2),
-      (Array(1, 2, 3, 0, 3), 3),
-      (Array(1, 2, 3, 0, 1), 2),
-      (Array(1, 3, 0, 1), 2),
-      (Array(1, 3, 10, 4), 9),
-      (Array(1, 3, 10, 4, 1), 9),
-      (Array(1, 3, 0, 4), 4),
-      (Array(1), 0),
-      (Array(1), 0)
+    val inOut = Seq(
+      (Seq(1, 2, 3), 2),
+      (Seq(1, 2, 3, 0, 3), 3),
+      (Seq(1, 2, 3, 0, 1), 2),
+      (Seq(1, 3, 0, 1), 2),
+      (Seq(1, 3, 10, 4), 9),
+      (Seq(1, 3, 10, 4, 1), 9),
+      (Seq(1, 3, 0, 4), 4),
+      (Seq(1), 0),
+      (Seq(1), 0)
     )
 
     inOut.foreach { x =>
