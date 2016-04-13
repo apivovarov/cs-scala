@@ -4,6 +4,8 @@ import scala.annotation.tailrec
 
 /**
   * Returns min Window(start, end) of String I containing all chars from Set T
+  * e.g. getMinSubstr("aabbcc", Set('a', 'c')) = Some((1, 4))
+  *
   */
 object MinSubstr {
   def getMinSubstr(I: String, T: Set[Char]): Option[(Int, Int)] = {
