@@ -29,6 +29,7 @@ object MaxDiff {
         }
       }
     }
+    List(1,2,3)
     diff
   }
 
