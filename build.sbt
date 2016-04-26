@@ -5,7 +5,7 @@ lazy val appSettings = Seq(
 )
 
 // Those settings should be the same as in alchemy!
-lazy val scalaVersion_ = "2.11.7" // should be the same as spark
+lazy val scalaVersion_ = "2.11.8" // should be the same as spark
 lazy val javaVersion = "1.7" // should be the same as spark
 
 lazy val scalaTestVersion = "2.2.4"
@@ -26,8 +26,9 @@ javacOptions in Global ++= Seq(
   "-target", javaVersion
 )
 
-//lazy val auxLib = Seq(
-//)
+lazy val auxLib = Seq(
+  "com.typesafe.akka" %% "akka-actor" % "2.4.4"
+)
 
 lazy val testLib = Seq(
   "org.scalatest" %% "scalatest" % scalaTestVersion % Test withSources() withJavadoc()
@@ -36,7 +37,7 @@ lazy val testLib = Seq(
 lazy val root = (project in file("."))
   .settings(appSettings: _*)
   .settings(
-    //libraryDependencies ++= auxLib,
+    libraryDependencies ++= auxLib,
     libraryDependencies ++= testLib
   )
 

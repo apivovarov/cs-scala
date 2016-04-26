@@ -2,6 +2,8 @@ package org.x4444.csscala.math
 
 import org.scalatest.FunSuite
 
+import scala.xml.Null
+
 /**
   * Test Math functions
   */
@@ -9,7 +11,7 @@ class MathSuite extends FunSuite {
 
   test("factorial") {
     val f = Math.factorial _
-
+Null
     val good = List(
       (0, 1L),
       (1, 1L),
