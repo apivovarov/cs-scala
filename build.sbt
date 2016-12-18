@@ -5,10 +5,10 @@ lazy val appSettings = Seq(
 )
 
 // Those settings should be the same as in alchemy!
-lazy val scalaVersion_ = "2.11.8" // should be the same as spark
-lazy val javaVersion = "1.7" // should be the same as spark
+lazy val scalaVersion_ = "2.12.1" // should be the same as spark
+lazy val javaVersion = "1.8" // should be the same as spark
 
-lazy val scalaTestVersion = "2.2.4"
+lazy val scalaTestVersion = "3.0.1"
 
 scalaVersion in Global := scalaVersion_
 
@@ -27,7 +27,7 @@ javacOptions in Global ++= Seq(
 )
 
 lazy val auxLib = Seq(
-  "com.typesafe.akka" %% "akka-actor" % "2.4.4"
+  "com.typesafe.akka" %% "akka-actor" % "2.4.14"
 )
 
 lazy val testLib = Seq(
