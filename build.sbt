@@ -1,7 +1,7 @@
 lazy val appSettings = Seq(
   organization := "org.x4444",
   name := "cs-scala",
-  version := "1.0.0"
+  version := "1.1.0"
 )
 
 // Those settings should be the same as in alchemy!
