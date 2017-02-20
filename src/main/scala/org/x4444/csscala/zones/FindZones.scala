@@ -2,9 +2,7 @@ package org.x4444.csscala.zones
 
 import scala.annotation.tailrec
 
-// This is the text editor interface.
-// Anything you type or change here will be seen by the other person in real time.
-// To execute Scala, Do not remove the object named Solution that extends App.
+// Find Zeros surrounded by Ones
 
 // 1 1 1 1 0 1
 // 1 0 1 1 0 1
